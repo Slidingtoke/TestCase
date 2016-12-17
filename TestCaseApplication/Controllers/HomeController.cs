@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TestCaseDataAccess.DAO;
 
 namespace TestCaseApplication.Controllers
 {
@@ -10,6 +11,12 @@ namespace TestCaseApplication.Controllers
     {
         public ActionResult Index()
         {
+
+
+            TestCaseDAO DAO = new TestCaseDAOImpl();
+            var meh = AppDomain.CurrentDomain.GetData("DataDirectory");
+
+            var allUsers = DAO.GetAllUsers();
             return View();
         }
 
