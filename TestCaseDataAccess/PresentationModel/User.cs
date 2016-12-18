@@ -38,6 +38,13 @@ namespace TestCaseDataAccess.PresentationModel
             return user;
         }
 
+        public void CopyFieldsToDBEntry(UserDB userDB)
+        {
+            userDB.Name = Name;
+            userDB.Email = Email;
+            userDB.TodoEntries = ConvertTodoEntriesToDB(TodoEntries);
+        }
+
         private static List<TodoEntry> ConvertTodoEntriesFromDB(List<TodoEntryDB> todoEntriesDB)
         {
             var todoEntries = new List<TodoEntry>();

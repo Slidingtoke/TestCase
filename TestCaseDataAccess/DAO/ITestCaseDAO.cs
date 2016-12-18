@@ -9,7 +9,8 @@ namespace TestCaseDataAccess.DAO
 {
     public interface ITestCaseDAO
     {
-        void AddOrUpdateUser(User user);
+        void AddUser(User user);
+        void UpdateUser(User user);
         List<User> GetAllUsers();
     }
 }

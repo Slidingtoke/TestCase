@@ -15,7 +15,7 @@ namespace TestCaseDataAccess.Tests.DAO
             ITestCaseDAO DAO = new TestCaseDAOImpl();
             var meh = AppDomain.CurrentDomain.GetData("DataDirectory");
 
-            User user = new User();
+            /*User user = new User();
             user.Email = "test@test.com";
             user.Name = "Test";
             user.TodoEntries.Add(new TodoEntry()
@@ -25,7 +25,7 @@ namespace TestCaseDataAccess.Tests.DAO
                 Type = "Test Type"
             });
 
-            DAO.AddOrUpdateUser(user);
+            DAO.AddOrUpdateUser(user);*/
 
             var allUsers = DAO.GetAllUsers();
             Assert.IsNotNull(allUsers);

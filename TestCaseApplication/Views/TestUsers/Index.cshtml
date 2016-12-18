@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PageScripts
+{
+    <script type="text/javascript" src="~/Scripts/knockout-3.4.0.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+<script type="text/javascript" src="~/Scripts/UserScripts/users.js"></script>
+}
+
+<h2>Test Users</h2>
+
+<div id="loading" class="page-loader" style="display:none">
+    <img id="loading-image" src="~/Content/images/ajax-loader.gif" alt="Loading">
+
+</div>
+<div id="user-table" style="display:none">
+    <div style="margin-bottom:5px;">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newUserModal">
+            Create new user
+        </button>
+    </div>
+    <table class="table table-hover table-condensed">
+        <tr data-bind="click: sortFunction">
+            <th id="ID">ID</th>
+            <th id="Name">Name</th>
+            <th id="Email">Email</th>
+            <th id="TodoEntries">Todo Entries</th>
+            <th id="ID">Actions</th>
+        </tr>
+
+        <tbody data-bind="foreach:userList">
+            <tr>
+                <td data-bind="text: ID"></td>
+                <td data-bind="text: Name"></td>
+                <td data-bind="text: Email"></td>
+                <td data-bind="text: 'Number of Todo Entries: '+TodoEntries().length"></td>
+                <td>
+                    <button data-bind="click: function(){$parent.selectUser(this)}" class="btn btn-primary">Show details</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@Html.Partial("UserDetailsPartial")
+@Html.Partial("CreateNewUserPartial")
+
+<div class="modal fade" id="newTodoEntryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Create new user</h4>
+            </div>
+            <form id="newTodoEntryForm" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Title:</label>
+                        <div class="col-sm-4">
+                            <input id="NewTodoTitle" class="form-control" required placeholder="Title" type="text" data-error="Field is required" autocomplete="off" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Description:</label>
+                        <div class="col-sm-4">
+                            <input id="NewTodoDescription" class="form-control" required placeholder="Description" type="text" data-error="Field is required" autocomplete="off" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Type:</label>
+                        <div class="col-sm-4">
+                            <input id="NewTodoType" class="form-control" required placeholder="Type" type="text" data-error="Field is required" autocomplete="off" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button data-bind="click: function(){addNewTodoToSelectedUser($('#NewTodoTitle').val(), $('#NewTodoDescription').val(), $('#NewTodoType').val())}" type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
