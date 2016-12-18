@@ -12,7 +12,7 @@ namespace TestCaseDataAccess.Tests.DAO
         public void TestMethod1()
         {
 
-            TestCaseDAO DAO = new TestCaseDAOImpl();
+            ITestCaseDAO DAO = new TestCaseDAOImpl();
             var meh = AppDomain.CurrentDomain.GetData("DataDirectory");
 
             User user = new User();

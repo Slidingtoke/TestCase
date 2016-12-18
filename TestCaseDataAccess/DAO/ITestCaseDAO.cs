@@ -7,7 +7,7 @@ using TestCaseDataAccess.PresentationModel;
 
 namespace TestCaseDataAccess.DAO
 {
-    public interface TestCaseDAO
+    public interface ITestCaseDAO
     {
         void AddOrUpdateUser(User user);
         List<User> GetAllUsers();

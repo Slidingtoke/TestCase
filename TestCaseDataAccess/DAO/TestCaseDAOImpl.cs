@@ -10,7 +10,7 @@ using TestCaseDataAccess.PresentationModel;
 
 namespace TestCaseDataAccess.DAO
 {
-    public class TestCaseDAOImpl : TestCaseDAO
+    public class TestCaseDAOImpl : ITestCaseDAO
     {
         public void AddOrUpdateUser(User userToBeAdded)
         {

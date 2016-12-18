@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\TestCaseDAO.cs" />
+    <Compile Include="DAO\ITestCaseDAO.cs" />
     <Compile Include="DAO\TestCaseDAOImpl.cs" />
     <Compile Include="DBModel\TodoEntryDB.cs" />
     <Compile Include="DBModel\UserDB.cs" />

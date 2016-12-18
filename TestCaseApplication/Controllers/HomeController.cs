@@ -13,7 +13,7 @@ namespace TestCaseApplication.Controllers
         {
 
 
-            TestCaseDAO DAO = new TestCaseDAOImpl();
+            ITestCaseDAO DAO = new TestCaseDAOImpl();
             var meh = AppDomain.CurrentDomain.GetData("DataDirectory");
 
             var allUsers = DAO.GetAllUsers();
