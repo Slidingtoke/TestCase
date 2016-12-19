@@ -13,11 +13,11 @@ namespace TestCaseDataAccess.DAO
 {
     public class TestCaseDAOImpl : ITestCaseDAO
     {
-        public void AddUser(User userToBeAdded)
+        public bool AddUser(User userToBeAdded)
         {
             if (userToBeAdded == null)
             {
-                return;
+                return false;
             }
             
             using (var context = new TestCaseDBContext())
@@ -32,14 +32,16 @@ namespace TestCaseDataAccess.DAO
                 {
                     //TODO: Use the projects logging method
                     Debug.WriteLine("Unable to save user entry, exception " + dbException.InnerException + ", message " + dbException.Message);
+                    return false;
                 }
             }
+            return true;
         }
-        public void UpdateUser(User userToBeUpdated)
+        public bool UpdateUser(User userToBeUpdated)
         {
             if (userToBeUpdated == null)
             {
-                return;
+                return false;
             }
             UserDB existingUser;
             using (var context = new TestCaseDBContext())
@@ -57,8 +59,10 @@ namespace TestCaseDataAccess.DAO
                 {
                     //TODO: Use the projects logging method
                     Debug.WriteLine("Unable to save user entry, exception " + dbException.InnerException + ", message " + dbException.Message);
+                    return false;
                 }
             }
+            return true;
         }
 
         public List<User> GetAllUsers()

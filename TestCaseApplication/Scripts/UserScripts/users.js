@@ -161,7 +161,6 @@
         }
 
         self.populateUserList();
-
     }
 
     ko.applyBindings(new UserViewModel());

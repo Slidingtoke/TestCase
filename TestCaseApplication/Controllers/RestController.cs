@@ -28,8 +28,8 @@ namespace TestCaseApplication.Controllers
             {
                 return new HttpStatusCodeResult(400);
             }
-            _testCaseDAO.AddUser(user);
-            return new HttpStatusCodeResult(200);
+            var success = _testCaseDAO.AddUser(user);
+            return new HttpStatusCodeResult(success ? 200 : 400);
         }
         public ActionResult UpdateUser(User user)
         {
@@ -37,8 +37,8 @@ namespace TestCaseApplication.Controllers
             {
                 return new HttpStatusCodeResult(400);
             }
-            _testCaseDAO.UpdateUser(user);
-            return new HttpStatusCodeResult(200);
+            var success = _testCaseDAO.UpdateUser(user);
+            return new HttpStatusCodeResult(success? 200 : 400);
         }
     }
 }

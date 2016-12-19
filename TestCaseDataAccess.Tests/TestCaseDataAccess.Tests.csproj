@@ -64,6 +64,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DAO\TestCaseDAOImplTest.cs" />
+    <Compile Include="Helper\DatabaseInitializer.cs" />
+    <Compile Include="Helper\Global.cs" />
+    <Compile Include="Helper\ObjectInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTestSetup.cs" />
   </ItemGroup>
